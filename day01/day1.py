@@ -11,4 +11,4 @@ for i, v in enumerate(final_list):
         max_i = i
         max_v = v
 
-print((max_v, max_i + 1))
+print(sum(sorted(final_list)[:0:-1][0:3]))
