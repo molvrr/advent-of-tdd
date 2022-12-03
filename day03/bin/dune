@@ -1,0 +1,14 @@
+(executable
+ (public_name day03)
+ (name main)
+ (libraries "advent"))
+
+(env
+ (dev
+  (flags
+   (:standard -w -32 -w -27))))
+
+(rule
+ (alias runtest)
+ (action
+  (run ./main.exe)))
