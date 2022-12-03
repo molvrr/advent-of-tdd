@@ -1,3 +1,6 @@
 (library
- (name "advent")
- (libraries "str"))
+ (name advent)
+ (inline_tests)
+ (libraries str)
+ (preprocess
+  (pps ppx_inline_test ppx_assert)))

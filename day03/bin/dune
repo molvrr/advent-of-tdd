@@ -9,6 +9,6 @@
    (:standard -w -32 -w -27 -w -8))))
 
 (rule
- (alias runtest)
+ (alias watch)
  (action
   (run ./main.exe)))

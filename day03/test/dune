@@ -1,2 +1,3 @@
 (test
- (name day03))
+ (name test)
+ (libraries advent))
