@@ -1,14 +1,17 @@
-with open('./day1.txt', 'r') as f:
-    data = f.read()
+class DayOne():
+  def __init__(self, file):
+    self.file = file
+    self.parse_data()
 
-data = [list(map(lambda x: int(x), tuple([y for y in c.split("\n") if y]))) for c in data.split("\n\n")]
-final_list = list(map(lambda x: sum(x), data))
+  def part_one(self):
+    return max(self.final_list)
 
-max_i = 0
-max_v = 0
-for i, v in enumerate(final_list):
-    if v > max_v and i != max_i:
-        max_i = i
-        max_v = v
+  def part_two(self):
+    return sum(sorted(self.final_list)[:0:-1][0:3])
 
-print(sum(sorted(final_list)[:0:-1][0:3]))
+  def parse_data(self):
+    with open(self.file, 'r') as f:
+      data = f.read()
+
+    result = [map(int, [y for y in c.split("\n") if y]) for c in data.split("\n\n")]
+    self.final_list = map(sum, result)
