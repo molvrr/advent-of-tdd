@@ -1,5 +1,5 @@
-(ns day04.core)
-(require '[clojure.string :as str])
+(ns day04.core
+  (:require [clojure.string :as str]))
 
 (defn to-range
   [[x y]]
