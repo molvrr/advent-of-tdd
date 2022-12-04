@@ -1,5 +1,5 @@
-(ns day04.core)
-(require '[clojure.string :as str])
+(ns day04.core
+  (:require [clojure.string :as str]))
 
 (defn to-range
   [[x y]]
@@ -22,15 +22,17 @@
         (map #(map fonfon %) raw-data)))
 
 (defn pre-process
-  [data]
-  (map #(let [[x y] %] (subseq? x y)) data))
+  [data f]
+  (map #(let [[x y] %] (f x y)) data))
 
-(defn part-one
-  [input]
+(defn part
+  [input f]
   (let [parsed-data (parse-data input)
-        pre-processed (pre-process parsed-data)]
+        pre-processed (pre-process parsed-data f)]
   (reduce #(+ % %2) (map #(if % 1 0) pre-processed))))
 
 (defn -main
   []
-  (println (str "Part one: " (part-one (slurp "input.txt")))))
+  (let [one (part (slurp "input.txt") subseq?)
+        two (part (slurp "input.txt") #(some (into #{} %) %2))]
+  (println (str "Part one: " one " - Part two: " two))))
